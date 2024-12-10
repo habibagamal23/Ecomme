@@ -4,14 +4,15 @@ import 'package:ecomm59/featuers/login/logic/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/Di/di.dart';
 import 'core/network/dio_network/DoiService.dart';
 import 'myApp.dart';
 
-void main() {
-  runApp(BlocProvider(
-    create: (context) =>
-        LoginCubit(LoginRepositoryImpl(
-            DioService(dio: DioFcatory().dio))),
-    child: MyApp(),
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  setGetit();
+  runApp(MultiBlocProvider(
+    providers: [BlocProvider(create: (context) => getit<LoginCubit>())],
+    child: const MyApp(),
   ));
 }
