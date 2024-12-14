@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/CustomButton.dart';
 import '../../../../core/widgets/dialog.dart';
-import 'Loading_widget.dart';
+import '../../../../core/widgets/Loading_widget.dart';
 
 class LoginButtonconsumer extends StatelessWidget {
   const LoginButtonconsumer({super.key});
