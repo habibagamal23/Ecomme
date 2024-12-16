@@ -1,6 +1,8 @@
+import 'package:ecomm59/core/chachHelper/chachhelpe.dart';
 import 'package:ecomm59/featuers/register/ui/screens/RegisterScreen.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../featuers/home/ui/screen/homeScreen.dart';
 import '../../featuers/login/ui/screens/loginScreen.dart';
 
 class ConstantRouter {
@@ -11,21 +13,43 @@ class ConstantRouter {
 }
 
 class AppRouter {
-  static final GoRouter router =
-      GoRouter(initialLocation: ConstantRouter.loginscreen, routes: [
-    //     login
-    GoRoute(
-      path: ConstantRouter.loginscreen,
-      builder: (context, state) {
-        return const LoginScreen();
-      },
-    ),
-    //rgister
-    GoRoute(
-      path: ConstantRouter.registerscreen,
-      builder: (context, state) {
-        return const RegisterScreen();
-      },
-    ),
-  ]);
+  static final GoRouter router = GoRouter(
+      initialLocation:
+          islogin ? ConstantRouter.homepath : ConstantRouter.loginscreen,
+      routes: [
+        //     login
+        GoRoute(
+          path: ConstantRouter.loginscreen,
+          builder: (context, state) {
+            return const LoginScreen();
+          },
+        ),
+        //rgister
+        GoRoute(
+          path: ConstantRouter.registerscreen,
+          builder: (context, state) {
+            return const RegisterScreen();
+          },
+        ),
+
+        // home
+        GoRoute(
+          path: ConstantRouter.homepath,
+          builder: (context, state) {
+            return const Homescreen();
+          },
+        ),
+      ]);
+}
+
+
+
+bool islogin = false;
+checkLogin() async {
+  int? id =  SharedPreferencesHelper.getId();
+  if (id != null) {
+    islogin = true;
+  } else {
+    islogin = false;
+  }
 }

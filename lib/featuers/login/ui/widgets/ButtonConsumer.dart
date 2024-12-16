@@ -1,10 +1,12 @@
 import 'package:ecomm59/featuers/login/logic/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/route/approuter.dart';
 import '../../../../core/widgets/CustomButton.dart';
-import '../../../../core/widgets/dialog.dart';
-import '../../../../core/widgets/Loading_widget.dart';
+import '../../../../core/widgets/DialogManager.dart';
+import '../../../../core/widgets/PrettyLoadingWidget.dart';
 
 class LoginButtonconsumer extends StatelessWidget {
   const LoginButtonconsumer({super.key});
@@ -28,6 +30,8 @@ class LoginButtonconsumer extends StatelessWidget {
             title: "LoginSucces",
             description: "Wlcome ${state.loginResponseModel.username}",
             onPress: () {});
+        context.go(ConstantRouter.homepath);
+
       }
       if (state is LoginError) {
         DialogManager.showErrorDialog(

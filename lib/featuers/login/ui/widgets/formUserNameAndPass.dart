@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:ecomm59/featuers/login/logic/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/widgets/CustomFormTextField.dart';
+import '../../../../generated/locale_keys.g.dart';
 
 class Formusernameandpass extends StatelessWidget {
   const Formusernameandpass({super.key});
@@ -16,16 +18,16 @@ class Formusernameandpass extends StatelessWidget {
         child: Column(
           children: [
             CustomFormTextField(
-              hintText: 'UserNAme',
-              labelText: 'UserNAme',
+              hintText: LocaleKeys.Authentication_user_name.tr(),
+              labelText: LocaleKeys.Authentication_user_name.tr(),
               controller: cubit.username,
             ),
             SizedBox(
               height: 20.h,
             ),
             CustomFormTextField(
-              hintText: 'Password',
-              labelText: 'Password',
+              hintText: LocaleKeys.Authentication_password.tr(),
+              labelText: LocaleKeys.Authentication_password.tr(),
               controller: cubit.pass,
             ),
             SizedBox(

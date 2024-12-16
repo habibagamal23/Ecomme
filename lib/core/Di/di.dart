@@ -1,4 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:ecomm59/featuers/home/data/HomeRepostry/HomeRepo.dart';
+import 'package:ecomm59/featuers/home/data/HomeRepostry/homeRepoImpl.dart';
+import 'package:ecomm59/featuers/home/logic/home_cubit.dart';
 
 import 'package:get_it/get_it.dart';
 
@@ -33,4 +36,10 @@ void setGetit() {
       () => RegisterRepositoryImpl(getit<ApiConsumer>()));
   getit.registerFactory<RegisterCubit>(
       () => RegisterCubit(getit<RegisterRepository>()));
+
+
+  /// for home
+  getit.registerLazySingleton<HomeRepo>(
+          () => HomeRepoImpl(getit<ApiConsumer>()));
+  getit.registerLazySingleton<HomeCubit> (()=> HomeCubit(getit<HomeRepo>()));
 }
