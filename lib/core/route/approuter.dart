@@ -5,7 +5,6 @@ import 'package:ecomm59/featuers/register/ui/screens/RegisterScreen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../featuers/home/ui/screen/homeScreen.dart';
-import '../../featuers/home/ui/screen/productDetailsScreen.dart';
 import '../../featuers/home/ui/screen/productdetailes.dart';
 import '../../featuers/login/ui/screens/loginScreen.dart';
 
