@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/widgets/ReusableGridView.dart';
+import '../../../../../core/widgets/ReusableGridView.dart';
 import 'CategoryItem.dart';
-import 'loadinghome.dart';
+import 'loadingcategory.dart';
 
 class CategoryBuilder extends StatelessWidget {
   const CategoryBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return BlocBuilder<HomeCubit , HomeState>(builder: (context , state){
       if(state is HomeLoading){
         return  const LoadingCategory();

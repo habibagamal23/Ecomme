@@ -1,8 +1,12 @@
 import 'package:ecomm59/core/chachHelper/chachhelpe.dart';
+import 'package:ecomm59/featuers/adress/ui/screen/PaymentScreen.dart';
+import 'package:ecomm59/featuers/home/data/models/productResponse.dart';
 import 'package:ecomm59/featuers/register/ui/screens/RegisterScreen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../featuers/home/ui/screen/homeScreen.dart';
+import '../../featuers/home/ui/screen/productDetailsScreen.dart';
+import '../../featuers/home/ui/screen/productdetailes.dart';
 import '../../featuers/login/ui/screens/loginScreen.dart';
 
 class ConstantRouter {
@@ -10,6 +14,8 @@ class ConstantRouter {
   static const String splash = "/";
   static const String loginscreen = "/login";
   static const String registerscreen = "/register";
+  static const String productdetailse = "/productdetailse";
+  static const String pyamentscreen = "/pyamentscreen";
 }
 
 class AppRouter {
@@ -37,6 +43,20 @@ class AppRouter {
           path: ConstantRouter.homepath,
           builder: (context, state) {
             return const Homescreen();
+          },
+        ),
+        GoRoute(
+          path: ConstantRouter.productdetailse,
+          builder: (context, state) {
+            final product = state.extra as Product;
+            return  ProductDetailsScreen(product: product);
+          },
+        ),
+
+        GoRoute(
+          path: ConstantRouter.pyamentscreen,
+          builder: (context, state) {
+            return  Paymentscreen();
           },
         ),
       ]);

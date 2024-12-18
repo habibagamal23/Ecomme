@@ -1,4 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:ecomm59/featuers/adress/cubit/location_cubit.dart';
+import 'package:ecomm59/featuers/adress/repo/RepoLocationImple.dart';
+import 'package:ecomm59/featuers/adress/repo/locationRepo.dart';
 import 'package:ecomm59/featuers/home/data/HomeRepostry/HomeRepo.dart';
 import 'package:ecomm59/featuers/home/data/HomeRepostry/homeRepoImpl.dart';
 import 'package:ecomm59/featuers/home/logic/home_cubit.dart';
@@ -42,4 +45,10 @@ void setGetit() {
   getit.registerLazySingleton<HomeRepo>(
           () => HomeRepoImpl(getit<ApiConsumer>()));
   getit.registerLazySingleton<HomeCubit> (()=> HomeCubit(getit<HomeRepo>()));
+
+  /// adress
+  getit.registerLazySingleton<RepoLocation>(
+          () => RepoLocationImplem());
+  getit.registerFactory<LocationCubit> (()=> LocationCubit(getit<RepoLocation>()));
+
 }

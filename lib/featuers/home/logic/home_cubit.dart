@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:ecomm59/featuers/home/data/HomeRepostry/HomeRepo.dart';
+import 'package:ecomm59/featuers/home/data/models/productResponse.dart';
 import 'package:meta/meta.dart';
 
 part 'home_state.dart';
@@ -8,18 +9,21 @@ class HomeCubit extends Cubit<HomeState> {
   HomeRepo homeRepo;
   HomeCubit(this.homeRepo) : super(HomeInitial());
   List<String > categories = [];
+  List<Product> products = [];
 
-  loadCategories() async{
+  loadAllData() async{
     emit(HomeLoading());
-    if(categories.isNotEmpty){
+    if(categories.isNotEmpty && products.isNotEmpty){
       return ;
     }
-
     try{
      var result= await   homeRepo.getCategory();
-     if(result.isSuccess){
+     var resultproduct = await homeRepo.getNewArrivelsProduct();
+
+     if(result.isSuccess && resultproduct.isSuccess){
        categories= result.data!;
-       emit(HomeSucces(categories));
+       products= resultproduct.data!.products!;
+       emit(HomeSucces(categories , products));
      }else{
        emit(HomeError(result.error!));
      }

@@ -2,25 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../../core/widgets/ReusableGridView.dart';
-
-class LoadingCategory extends StatelessWidget {
-  const LoadingCategory({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-      return SizedBox(
-        height:  230.h,
-        child: ReusableGridView(
-          itemCount: 6,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return const ShimmerCategoryItem();
-          },
-        ));
-  }
-}
-
 class ShimmerCategoryItem extends StatelessWidget {
   const ShimmerCategoryItem({super.key});
 
@@ -41,7 +22,7 @@ class ShimmerCategoryItem extends StatelessWidget {
             ),
           ),
         ),
-         SizedBox(height: 8.h),
+        SizedBox(height: 8.h),
         Shimmer.fromColors(
           baseColor: Colors.grey.shade300,
           highlightColor: Colors.grey.shade100,

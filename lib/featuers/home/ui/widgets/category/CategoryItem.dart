@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/styles/ColorsManager.dart';
+import '../../../../../core/styles/ColorsManager.dart';
 
 
 class CategoryItem extends StatelessWidget {

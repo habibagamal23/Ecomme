@@ -3,6 +3,7 @@ import 'package:ecomm59/AppLogic/Localization/localization_cubit.dart';
 import 'package:ecomm59/core/chachHelper/chachhelpe.dart';
 import 'package:ecomm59/core/network/dio_network/DoiService.dart';
 import 'package:ecomm59/core/network/dio_network/diofactory.dart';
+import 'package:ecomm59/featuers/adress/cubit/location_cubit.dart';
 import 'package:ecomm59/featuers/home/data/HomeRepostry/homeRepoImpl.dart';
 import 'package:ecomm59/featuers/home/logic/home_cubit.dart';
 import 'package:ecomm59/featuers/login/data/repo/LoginRepositoryImpl.dart';
@@ -34,7 +35,9 @@ void main() async {
         BlocProvider(create: (context) => getit<LoginCubit>()),
         BlocProvider(create: (context)=>getit<RegisterCubit>()),
               BlocProvider(create: (context)=>LocalizationCubit()),
-              BlocProvider(create: (context)=>getit<HomeCubit>()..loadCategories()),
+              BlocProvider(create: (context)=>getit<HomeCubit>()..loadAllData()),
+              BlocProvider(create: (context)=>getit<LocationCubit>()..getCurrentlocation()),
+
             ],
 
           child: const MyApp(),
