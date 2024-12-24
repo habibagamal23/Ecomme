@@ -5,6 +5,9 @@ import 'package:ecomm59/featuers/adress/repo/locationRepo.dart';
 import 'package:ecomm59/featuers/home/data/HomeRepostry/HomeRepo.dart';
 import 'package:ecomm59/featuers/home/data/HomeRepostry/homeRepoImpl.dart';
 import 'package:ecomm59/featuers/home/logic/home_cubit.dart';
+import 'package:ecomm59/featuers/payment/data/repo/PaymentRepoImplemntion.dart';
+import 'package:ecomm59/featuers/payment/data/repo/paymentRepo.dart';
+import 'package:ecomm59/featuers/payment/logic/payment_cubit.dart';
 
 import 'package:get_it/get_it.dart';
 
@@ -50,5 +53,11 @@ void setGetit() {
   getit.registerLazySingleton<RepoLocation>(
           () => RepoLocationImplem());
   getit.registerFactory<LocationCubit> (()=> LocationCubit(getit<RepoLocation>()));
+
+
+  /// payment
+  getit.registerLazySingleton<PaymentRepo>(
+          () => PaymentRepoImplmention(getit<ApiConsumer>()));
+  getit.registerFactory<PaymentCubit> (()=> PaymentCubit(getit<PaymentRepo>()));
 
 }

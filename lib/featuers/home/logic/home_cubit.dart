@@ -10,7 +10,6 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this.homeRepo) : super(HomeInitial());
   List<String > categories = [];
   List<Product> products = [];
-
   loadAllData() async{
     emit(HomeLoading());
     if(categories.isNotEmpty && products.isNotEmpty){
@@ -32,9 +31,5 @@ class HomeCubit extends Cubit<HomeState> {
     }
 
   }
-
-
-
-
 
 }

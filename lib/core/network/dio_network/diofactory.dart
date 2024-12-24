@@ -10,9 +10,7 @@ class DioFcatory {
     if (_dio != null) {
       return _dio!;
     }
-    _dio = Dio(BaseOptions(
-      baseUrl: ApiConstants.apiBaseUrl,
-    ))
+    _dio = Dio(BaseOptions())
       ..interceptors.add(PrettyDioLogger(
         responseBody: true,
         requestBody: true,

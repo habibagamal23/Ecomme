@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 
+import '../../../payment/ui/widgets/PaymentButtonConsumer.dart';
 import '../widgets/adressBulider.dart';
 
 class Paymentscreen extends StatelessWidget {
@@ -12,7 +12,13 @@ class Paymentscreen extends StatelessWidget {
       body: Column(
         children: [
           Text("Delivery"),
-          Adressbulider()
+          Adressbulider(),
+          SizedBox(
+            height: 40,
+          ),
+          Paymentbuttonconsumer(
+            ammount: 2000,
+          )
         ],
       ),
     );
